@@ -9,7 +9,7 @@
     <div class="form-group">
         <div class="input-group">
             <input type="search" class="form-control"
-                   asp-for="SearchTerm" />@*if i add segmant to route will recive it as part of route if don;t it will be querystring*@
+                   asp-for="SearchTerm" />@*if i add segmant to route will receive it as part of route if don;t it will be querystring*@
                 <span class="input-group-btn">
                     <button class="btn btn-default">
                         <i class="glyphicon glyphicon-search"></i>
@@ -23,6 +23,7 @@
     @foreach (var restaurant in Model.Restaurants)
     {
         <partial name="_Summary" model="restaurant" />
+        @*<partial name="_Summary" model="restaurant"  veiw-data=ViewData["key"]/> if i want pass data dectionary*@
     }
     <a asp-page="./Edit"
        class="btn btn-primary">Add new restaurant</a>

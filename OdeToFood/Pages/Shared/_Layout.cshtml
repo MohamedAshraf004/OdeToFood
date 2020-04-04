@@ -45,11 +45,12 @@
         @RenderBody()
         <hr />
         <footer>
-            <vc:restaurant-count></vc:restaurant-count>
-            <vc:restaurant-count></vc:restaurant-count>
+            <vc:restaurant-count></vc:restaurant-count>            
 
             @*if there is parameter
-        <vc:restaurant-count address=""></vc:restaurant-count>
+        <vc:restaurant-count address-city=""></vc:restaurant-count> to invoke view component throught tag helper i must register assemly contains vc
+                @addTagHelper *,OdeToFood
+                @await component.invokeAsync("RestaurantCount",new {parameterName=value})
             *@
             @RenderSection("footer", required: false)
             <p>&copy; 2018 - OdeToFood</p>
@@ -58,6 +59,7 @@
 
     <environment include="Development">
         <script src="~/lib/jquery/dist/jquery.js"></script>
+        <partial name="_ValidationScriptsPartial" />
         <script src="~/lib/bootstrap/dist/js/bootstrap.js"></script>
         <script src="~/js/site.js" asp-append-version="true"></script>
     </environment>
@@ -68,6 +70,8 @@
                 crossorigin="anonymous"
                 integrity="sha384-tsQFqpEReu7ZLhBV2VZlAu7zcOV+rXbYlF2cqB8txI/8aZajjp4Bqd+V6D5IgvKT">
         </script>
+        <partial name="_ValidationScriptsPartial" />
+
         <script src="https://ajax.aspnetcdn.com/ajax/bootstrap/3.3.7/bootstrap.min.js"
                 asp-fallback-src="~/lib/bootstrap/dist/js/bootstrap.min.js"
                 asp-fallback-test="window.jQuery && window.jQuery.fn && window.jQuery.fn.modal"

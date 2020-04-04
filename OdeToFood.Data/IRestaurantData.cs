@@ -59,7 +59,7 @@ namespace OdeToFood.Data
 
         public int GetRestaurantCount()
         {
-            throw new System.NotImplementedException();
+            return restaurants.Count();
         }
 
         public IEnumerable<Restaurant> GetRestaurantsByName(string name = null)
